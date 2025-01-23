@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Interview</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Schedule Interview</h1>
+
+        <form (ngSubmit)="onSubmit(scheduleForm)" #scheduleForm="ngForm">
+
+            <div class="outer-form">
+                <div class="form-left">
+                    <div class="form-row">
+                        <label for="candidateName">Candidate name</label>
+                        <input type="text" id="candidateName" [(ngModel)]="interview.candidateName" name="candidateName" required #candidateName="ngModel" minlength="3" pattern="[A-Za-z ]+">
+                        <!-- <small *ngIf="candidateName.invalid && candidateName.touched" class="error">Candidate name is required.</small> -->
+                        <div *ngIf="candidateName.touched && candidateName.invalid" class="error">
+                            <small *ngIf="candidateName.errors?.['required']">Candidate name is required.</small>
+                            <small *ngIf="candidateName.errors?.['pattern']">Name must contain only alphabets, spaces, hyphens, or apostrophes.</small>
+                            <small *ngIf="candidateName.errors?.['minlength']">Name must be at least 3 characters long.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="candidatePhone">Candidate phone</label>
+                        <input type="tel" id="candidatePhone" [(ngModel)]="interview.candidatePhone" name="candidatePhone" required pattern="^\d{10}$" #candidatePhone="ngModel">
+                        <small *ngIf="candidatePhone.invalid && candidatePhone.touched" class="error">Enter a valid 10-digit phone number.</small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="candidateEmail">Candidate email</label>
+                        <input type="email" id="candidateEmail" [(ngModel)]="interview.candidateEmail" name="candidateEmail" required #candidateEmail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <small *ngIf="candidateEmail.invalid && candidateEmail.touched" class="error">Enter a valid email address.</small>
+                    </div>
+                </div>
+
+                <div class="form-right">
+                    <div class="form-row">
+                        <label for="interviewerName">Interviewer name</label>
+                        <input type="text" id="interviewerName" [(ngModel)]="interview.interviewerName" name="interviewerName" required #interviewerName="ngModel" pattern="[A-Za-z ]+">
+                        <!-- <small *ngIf="interviewerName.invalid && interviewerName.touched" class="error">Interviewer name is required.</small> -->
+                        <div *ngIf="interviewerName.touched && interviewerName.invalid" class="error">
+                            <small *ngIf="interviewerName.errors?.['required']">Interviewer name is required.</small>
+                            <small *ngIf="interviewerName.errors?.['pattern']">Name must contain only alphabets, spaces, hyphens, or apostrophes.</small>
+                            <small *ngIf="interviewerName.errors?.['minlength']">Name must be at least 3 characters long.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="interviewerPhone">Interviewer phone</label>
+                        <input type="tel" id="interviewerPhone" [(ngModel)]="interview.interviewerPhone" name="interviewerPhone" required pattern="^\d{10}$" #interviewerPhone="ngModel">
+                        <small *ngIf="interviewerPhone.invalid && interviewerPhone.touched" class="error">Enter a valid 10-digit phone number.</small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="interviewerEmail">Interviewer email</label>
+                        <input type="email" id="interviewerEmail" [(ngModel)]="interview.interviewerEmail" name="interviewerEmail" required #interviewerEmail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <small *ngIf="interviewerEmail.invalid && interviewerEmail.touched" class="error">Enter a valid email address.</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label for="meetLink">Meeting link</label>
+                <input id="meetLink" [(ngModel)]="interview.meetLink" name="meetLink" required #meetLink="ngModel" pattern="https?://.+">
+                <small *ngIf="scheduleForm.controls['meetLink']?.touched && scheduleForm.controls['meetLink']?.invalid" class="error">
+                  Please enter a valid Google Meet link.
+                </small>
+            </div>
+
+            <div class="form-row">
+                <label for="interviewTime">Interview time</label>
+                <input type="time" placeholder="hrs:mins" id="interviewTime" [(ngModel)]="interview.interviewTime" name="interviewTime" required #interviewTime="ngModel">
+                <small *ngIf="interviewTime.invalid && interviewTime.touched" class="error">Interview time is required.</small>
+            </div>
+
+            <div class="form-row">
+                <label for="interviewDate">Interview date</label>
+                <input type="date" id="interviewDate" [(ngModel)]="interview.interviewDate" name="interviewDate" required #interviewDate="ngModel">
+                <small *ngIf="interviewDate.invalid && interviewDate.touched" class="error">Interview date is required.</small>
+            </div>
+
+            <div class="form-row">
+                <textarea id="description" [(ngModel)]="interview.description" name="description" placeholder="Description..." maxlength="50"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" [disabled]="scheduleForm.invalid">SCHEDULE</button>
+        </form>
+    </div>
+</body>
+
+</html>

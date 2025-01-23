@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+.snackbar-success {
+    background-color: #4caf50; /* Green for success */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .snackbar-error {
+    background-color: #f44336; /* Red for error */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+
+.container {
+    width: 120%;
+    background: #fff;
+    margin-left: -20%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 80px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.outer-form {
+    display: inline-flex;
+    width: -webkit-fill-available;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-right {
+    /* margin-left: 25px; */
+    width: -webkit-fill-available;
+    margin-left: 10%;
+}
+
+.form-left {
+    /* margin-left: 25px; */
+    width: -webkit-fill-available;
+}
+
+.form-row {
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.form-row label {
+    flex: auto;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-row input {
+    flex: 2;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #e7f3ff;
+}
+
+.form-row input:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+textarea {
+    width: -webkit-fill-available;
+    height: 80px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #e7f3ff;
+    resize: none;
+}
+
+textarea:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #66afe9;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    margin-top: 40px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #005cbf;
+}
